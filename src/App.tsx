@@ -1,6 +1,19 @@
-import "./App.css";
+import { LoginForm } from "./components/LoginForm";
+import { selectIsLoggedIn } from "./redux/auth/selectors";
+import { useSelector } from "react-redux";
+import { Table } from "./components/Table";
+
 function App() {
-  return <div></div>;
+  const selector = useSelector(selectIsLoggedIn);
+  console.log(selector);
+
+  return (
+    <div>
+      <LoginForm></LoginForm>
+      {/* {selector && <Table></Table>} */}
+      <Table></Table>
+    </div>
+  );
 }
 
 export default App;
